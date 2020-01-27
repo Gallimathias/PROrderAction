@@ -6,12 +6,12 @@ let client = new gitHub.GitHub(token);
 
 console.log("Hello World, this is a demo");
 
-// client.pulls.list().then(request => {
-//   request.data.forEach(pr => {
-//     try {
-//       info("PR " + pr.id + ": " + pr.state);
-//     } catch (error) {
-//       console.log("An error occured: " + error);
-//     }
-//   });
-// });
+client.pulls.list().then(request => {
+  request.data.forEach(pr => {
+    try {
+      info("PR " + pr.id + ": " + pr.state);
+    } catch (error) {
+      console.log("An error occured: " + error);
+    }
+  });
+});
