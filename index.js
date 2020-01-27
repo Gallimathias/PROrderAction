@@ -7,7 +7,12 @@ let client = new github.GitHub(token);
 client.pulls.list().then(request => {
     request.data
     .forEach(pr => {
-        core.info("PR " + pr.id + ": " + pr.state);
+        try {
+            core.info("PR " + pr.id + ": " + pr.state);
+        } catch (error) {
+            core.info("An error occured: " + error);
+        }
+        
     })
 });
 
