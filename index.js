@@ -1,8 +1,8 @@
-import { getInput, info } from "@actions/core";
-import { GitHub } from "@actions/github";
+const core = required("@actions/core");
+const gitHub = required("@actions/github");
 
-let token = getInput("repo-token", { required: true });
-let client = new GitHub(token);
+let token = core.getInput("repo-token", { required: true });
+let client = new gitHub.GitHub(token);
 
 console.log("Hello World, this is a demo");
 
