@@ -8,7 +8,6 @@ console.log("Hello World, this is a demo");
 
 client.pulls
   .list({
-    owner: gitHub.context.repo.owner,
     repo: gitHub.context.repo.repo
   })
   .then(pull => {
