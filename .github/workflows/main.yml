@@ -6,6 +6,6 @@ jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-    - uses: Gallimathias/PROrderAction@latest
+    - uses: Gallimathias/PROrderAction@master
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
