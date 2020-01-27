@@ -13,12 +13,13 @@ client.pulls
   })
   .then(pull => {
     pull.data.forEach(p => {
-      console.log(p);
-    //   client.issues.addLabels({
-    //     owner: gitHub.context.repo.owner,
-    //     repo: gitHub.context.repo.repo,
-    //     issue_number: p.issue_number,
-    //     labels: ["bug"]
-    //   })
+      var obj = {
+        owner: gitHub.context.repo.owner,
+        repo: gitHub.context.repo.repo,
+        issue_number: p.number,
+        labels: ["bug"]
+      };
+      console.log(obj);
+      client.issues.addLabels(obj);
     });
   });
