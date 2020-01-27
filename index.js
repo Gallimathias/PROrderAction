@@ -17,7 +17,7 @@ client.pulls
       client.issues.addLabels({
         owner: gitHub.context.repo.owner,
         repo: gitHub.context.repo.repo,
-        issue_number: p.id,
+        issue_number: p.number,
         labels: ["bug"]
       })
     });
