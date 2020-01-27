@@ -1,5 +1,5 @@
-const core = required("@actions/core");
-const gitHub = required("@actions/github");
+const core = require('@actions/core');
+const gitHub = require('@actions/github');
 
 let token = core.getInput("repo-token", { required: true });
 let client = new gitHub.GitHub(token);
