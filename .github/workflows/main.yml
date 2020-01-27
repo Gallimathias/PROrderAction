@@ -1,0 +1,11 @@
+name: "Pull Request Sorters"
+on:
+- pull_request
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: Gallimathias/PROrderAction@v1.0.0
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
