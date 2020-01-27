@@ -1,0 +1,8 @@
+name: 'Order PullRequests'
+description: 'Give all PullRequests with same base branch a order'
+inputs: 
+  repo-token:
+    description: 'The GITHUB_TOKEN secret'
+runs:
+  using: 'node12'
+  main: 'index.js'

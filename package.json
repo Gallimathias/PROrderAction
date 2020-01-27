@@ -1,0 +1,11 @@
+{
+  "name": "PrOrderAction",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Maximilian Krüger <Maximilian.Krueger@airsphere.de>",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.2",
+    "@actions/github": "^2.1.0"
+  }
+}
