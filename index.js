@@ -6,20 +6,26 @@ let client = new gitHub.GitHub(token);
 
 console.log("Hello World, this is a demo");
 
+let repo = gitHub.context.repo.repo;
+let owner = gitHub.context.repo.owner;
 client.pulls
   .list({
-    owner: gitHub.context.repo.owner,
-    repo: gitHub.context.repo.repo
+    owner: owner,
+    repo: repo
   })
   .then(pull => {
     pull.data.forEach(p => {
       var obj = {
-        owner: gitHub.context.repo.owner,
-        repo: gitHub.context.repo.repo,
+        owner: owner,
+        repo: repo,
         issue_number: p.number,
         labels: ["bug"]
       };
-      console.log(obj);
-      client.issues.addLabels(obj);
+
+      client.pulls.listReviewRequests({
+        owner: owner,
+        repo: repo,
+        pull_number: p.number
+      }).then(list => console.log(list.data));
     });
   });
