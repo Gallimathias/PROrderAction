@@ -29,3 +29,4 @@ client.pulls
       }).then(list => console.log(list.data));
     });
   });
+console.log("Bla this is a demo");
