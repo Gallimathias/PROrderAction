@@ -21,7 +21,7 @@ client.pulls
         issue_number: p.number,
         labels: ["bug"]
       };
-
+      console.log(p);
       client.pulls.listReviewRequests({
         owner: owner,
         repo: repo,
