@@ -1,0 +1,21 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Pull SQL Server
+      run: |
+        docker pull microsoft/mssql-server-windows-developer
+
+    - name: Run SQL Server
+      run: |
+        docker run -d -p 1433:1433 -e sa_password=demoPw -e ACCEPT_EULA=Y microsoft/mssql-server-windows-developer --name sqlServer
+        
+    - name: Stop SQL Server
+      run: |
+        docker stop sqlServer
