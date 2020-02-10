@@ -8,7 +8,14 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Run a multi-line script
-      run: |
+    - name: Pull SQL Server
+      run: 
         docker pull microsoft/mssql-server-windows-express
-        docker run -d -p 1433:1433 -e sa_password=demoPw -e ACCEPT_EULA=Y microsoft/mssql-server-windows-express
+
+    - name: Run SQL Server
+      run:
+        docker run -d -p 1433:1433 -e sa_password=demoPw -e ACCEPT_EULA=Y microsoft/mssql-server-windows-express --name sqlServer
+        
+    - name: Stop SQL Server
+      run:
+        docker stop sqlServer
